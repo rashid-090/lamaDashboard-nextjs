@@ -6,8 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Lama Dev Next.js Admin Dashboard',
-  description: 'Next.js 14 Tutorial',
+  title: 'Admin Dashboard',
+  description: 'Next.js 14',
 }
 
 export default function RootLayout({ children }) {

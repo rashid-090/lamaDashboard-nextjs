@@ -1,24 +1,16 @@
-import { cards } from "../lib/data";
-import Card from "../ui/dashboard/card/card";
-import Chart from "../ui/dashboard/chart/chart";
+import { fetchProducts, fetchUsers } from "../lib/data";
 import styles from "../ui/dashboard/dashboard.module.css";
-import Rightbar from "../ui/dashboard/rightbar/rightbar";
-import Transactions from "../ui/dashboard/transactions/transactions";
 
-const Dashboard = () => {
+const Dashboard = async () => {
+  const prods = await fetchProducts()
+  const users = await fetchUsers()
+  const prodcount = prods?.count;
+  const usercount = users?.count;
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
-        <div className={styles.cards}>
-          {cards.map((item) => (
-            <Card item={item} key={item.id} />
-          ))}
-        </div>
-        <Transactions />
-        <Chart />
-      </div>
-      <div className={styles.side}>
-        <Rightbar />
+        <p>Total Products: {prodcount}</p>
+        <p>Total user: {usercount}</p>
       </div>
     </div>
   );
